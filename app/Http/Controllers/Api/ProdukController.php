@@ -32,7 +32,7 @@ class ProdukController extends Controller
                 'harga_barang' => 'required|integer',
                 'deskripsi'    => 'required',
                 'stok'         => 'required|integer',
-                'id_kategori'  => 'required|exists:kategori,id_kategori',
+                'id_kategori'  => 'required|exists:kategoris,id',
             ]);
 
             $produk = Produk::create($request->only([
@@ -73,11 +73,11 @@ class ProdukController extends Controller
             }
 
             $request->validate([
-                'nama_barang'  => 'required|unique:produks,nama_barang,' . $id . ',id_barang',
+                'nama_barang'  => 'required|unique:produks,nama_barang,' . $id . ',id',
                 'harga_barang' => 'required|integer',
                 'deskripsi'    => 'required',
                 'stok'         => 'required|integer',
-                'id_kategori'  => 'required|exists:kategoris,id_kategori',
+                'id_kategori'  => 'required|exists:kategoris,id',
             ]);
 
             $produk->update($request->only([
